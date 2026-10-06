@@ -1,4 +1,22 @@
-# React + Vite
+# OctoFit Tracker – Presentation Tier
+
+## API configuration
+
+The frontend calls the Express API through `import.meta.env.VITE_CODESPACE_NAME`.
+In a Codespace, `VITE_CODESPACE_NAME` must be defined, for example in `octofit-tracker/frontend/.env.local`:
+
+```bash
+echo "VITE_CODESPACE_NAME=$CODESPACE_NAME" > octofit-tracker/frontend/.env.local
+```
+
+Requests then go to `https://$VITE_CODESPACE_NAME-8000.app.github.dev/api/...`.
+If the variable is unset, the app falls back to `http://localhost:8000`.
+Restart `npm run dev` after changing env files.
+
+Endpoints used: `/api/activities/`, `/api/leaderboard/`, `/api/teams/`, `/api/users/`, `/api/workouts/`.
+Both plain array responses and paginated `{ "results": [...] }` responses are supported.
+
+## React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
